@@ -1,5 +1,5 @@
-
-from pydantic_settings import BaseSettings
+# app/core/config.py (کد پیشنهادی و اصلاح شده)
+from pydantic_settings import BaseSettings, SettingsConfigDict # این import کمی تغییر می‌کند
 from pathlib import Path
 
 class Settings(BaseSettings):
@@ -8,8 +8,11 @@ class Settings(BaseSettings):
     DEBUG_MODE: bool = False
     DATA_FILE_PATH: Path
 
-    class Config:
-        env_file = ".env"
-        env_file_encoding = "utf-8"
+    # این بخش جایگزین class Config شما می‌شود
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        extra="ignore"
+    )
 
 settings = Settings()
