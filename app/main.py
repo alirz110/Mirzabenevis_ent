@@ -1,3 +1,4 @@
+# app/main.py (نسخه اصلاح شده با endpoint /ping)
 
 import logging
 from fastapi import FastAPI
@@ -13,6 +14,16 @@ app = FastAPI(
     version=settings.APP_VERSION,
     debug=settings.DEBUG_MODE
 )
+
+# === بخش اضافه شده برای تست ===
+@app.get("/ping", tags=["Health Check"])
+def ping():
+    """
+    یک endpoint ساده برای بررسی سلامت و در دسترس بودن سرور.
+    اگر این کار کند، یعنی شبکه و برنامه اصلی سالم هستند.
+    """
+    return {"status": "pong"}
+# ==============================
 
 app.include_router(api_solver_router.router, prefix="/api", tags=["Solver API"])
 

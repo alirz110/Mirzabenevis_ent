@@ -34,7 +34,9 @@ COPY ./data ./data
 # باز کردن پورت 8000 برای دسترسی از بیرون کانتینر
 EXPOSE 8000
 
+
+
 # دستور پیش‌فرض برای اجرای برنامه
 # این دستور توسط Start Command در Railway جایگزین (override) خواهد شد
 # اما برای تست لوکال با Docker بسیار مفیده
-CMD ["gunicorn", "-w", "4", "-k", "uvicorn.workers.UvicornWorker", "app.main:app", "--bind", "0.0.0.0:8000"]
+CMD ["sh", "-c", "gunicorn -w 1 -k uvicorn.workers.UvicornWorker app.main:app --bind 0.0.0.0:${PORT:-8000}"]
