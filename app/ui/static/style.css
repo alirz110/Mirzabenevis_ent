@@ -1,2 +1,90 @@
 
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#f7f7f7;color:#333;margin:0;padding:20px}.container{max-width:800px;margin:20px auto}.header,.panel,.group{background:white;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.05);padding:20px;margin-bottom:20px}h1{margin:0;color:#1a5a96}.panel{display:flex;gap:10px}#letters-input{flex-grow:1;padding:12px;border:1px solid #ccc;border-radius:5px;font-size:16px;direction:rtl}#solve-button{padding:12px 20px;border:none;background:#1a5a96;color:white;border-radius:5px;cursor:pointer;font-size:16px}#status{margin-bottom:10px;font-weight:bold;text-align:right}.group h3{margin:0 0 10px;border-bottom:1px solid #eee;padding-bottom:5px;text-align:right}.words{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}.word{background:#eef4f9;color:#1a5a96;padding:5px 12px;border-radius:15px}.error{color:#d93025;background:#fbe9e7;border:1px solid #ffcdd2;padding:10px;border-radius:5px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#f7f7f7;color:#333;margin:0;padding:20px}.container{max-width:800px;margin:20px auto}.header,.panel,.group{background:white;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.05);padding:20px;margin-bottom:20px}h1{margin:0;color:#1a5a96}.panel{display:flex;gap:10px}#letters-input{flex-grow:1;padding:12px;border:1px solid #ccc;border-radius:5px;font-size:16px;direction:rtl}#solve-button{padding:12px 20px;border:none;background:#1a5a96;color:white;border-radius:5px;cursor:pointer;font-size:16px}#status{margin-bottom:10px;font-weight:bold;text-align:right}.group h3{margin:0 0 10px;border-bottom:1px solid #eee;padding-bottom:5px;text-align:right}.words{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}.word{background:#eef4f9;color:#1a5a96;padding:5px 12px;border-radius:15px}.error{color:#d93025;background:#fbe9e7;border:1px solid #ffcdd2;padding:10px;border-radius:5px}.page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* محتوای اصلی در ستون وسط */
+.container {
+    flex-grow: 1;
+    max-width: 800px;
+    margin: 0;
+    /* حذف margin قبلی */
+}
+
+/* استایل کانتینر تبلیغات */
+.ad-container {
+    flex-shrink: 0;
+    width: 180px;
+}
+
+/* استایل لینک تبلیغات */
+.ad-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* استایل باکس placeholder تبلیغات */
+.ad-placeholder {
+    height: 400px;
+    background: #f9f9f9;
+    border: 2px dashed #ff4500;
+    /* رنگ نارنجی-قرمز جیغ */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* افکت هاور برای جلب توجه */
+.ad-placeholder:hover {
+    border-color: #ff6347;
+    background: #fefefe;
+    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+/* === واکنش‌گرایی برای موبایل === */
+@media (max-width: 992px) {
+    .page-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ad-container {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .ad-placeholder {
+        height: 120px;
+    }
+
+    /* ترتیب نمایش در موبایل: تبلیغ راست، محتوای اصلی، تبلیغ چپ */
+    .ad-right {
+        order: 1;
+    }
+
+    .container {
+        order: 2;
+        width: 100%;
+    }
+
+    .ad-left {
+        order: 3;
+    }
+}
