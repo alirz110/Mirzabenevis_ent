@@ -1,5 +1,114 @@
 
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#f7f7f7;color:#333;margin:0;padding:20px}.container{max-width:800px;margin:20px auto}.header,.panel,.group{background:white;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.05);padding:20px;margin-bottom:20px}h1{margin:0;color:#1a5a96}.panel{display:flex;gap:10px}#letters-input{flex-grow:1;padding:12px;border:1px solid #ccc;border-radius:5px;font-size:16px;direction:rtl}#solve-button{padding:12px 20px;border:none;background:#1a5a96;color:white;border-radius:5px;cursor:pointer;font-size:16px}#status{margin-bottom:10px;font-weight:bold;text-align:right}.group h3{margin:0 0 10px;border-bottom:1px solid #eee;padding-bottom:5px;text-align:right}.words{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}.word{background:#eef4f9;color:#1a5a96;padding:5px 12px;border-radius:15px}.error{color:#d93025;background:#fbe9e7;border:1px solid #ffcdd2;padding:10px;border-radius:5px}.page-wrapper {
+/* === بخش بالایی فایل با اصلاحات برای فوتر چسبان === */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f7f7f7;
+    color: #333;
+    margin: 0;
+
+    /* --- تغییرات اصلی --- */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* حداقل ارتفاع برابر با ارتفاع صفحه نمایش */
+    padding: 0;
+    /* حذف padding از body */
+}
+
+/* این استایل بدون تغییر باقی می‌ماند */
+.container {
+    flex-grow: 1;
+    /* این خط قبلا در استایل شما نبوده، برای چیدمان سه ستونی لازم است */
+    max-width: 800px;
+    margin: 0;
+    /* margin قبلی (20px auto) حذف می شود */
+}
+
+.header,
+.panel,
+.group {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #1a5a96;
+    /* رنگ متن بدون تغییر */
+    font-size: 2.2rem;
+    /* سایز فونت به طور قابل توجهی بزرگتر شد */
+    font-weight: 700;
+    /* بولد کردن فونت */
+    text-align: center;
+    /* وسط چین کردن متن */
+    margin: 0 0 25px 0;
+    /* فاصله از پایین (25 پیکسل) */
+}
+
+.panel {
+    display: flex;
+    gap: 10px;
+}
+
+#letters-input {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    direction: rtl;
+}
+
+#solve-button {
+    padding: 12px 20px;
+    border: none;
+    background: #1a5a96;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#status {
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.group h3 {
+    margin: 0 0 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    text-align: right;
+}
+
+.words {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.word {
+    background: #eef4f9;
+    color: #1a5a96;
+    padding: 5px 12px;
+    border-radius: 15px;
+}
+
+.error {
+    color: #d93025;
+    background: #fbe9e7;
+    border: 1px solid #ffcdd2;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Wrapper اصلی صفحه */
+.page-wrapper {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -9,6 +118,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;b
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
+
+    /* --- تغییر اصلی --- */
+    flex: 1;
+    /* این خط باعث می‌شود محتوای اصلی فضای خالی را پر کند */
 }
 
 /* محتوای اصلی در ستون وسط */
@@ -87,4 +200,54 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;b
     .ad-left {
         order: 3;
     }
+}
+
+.page-footer {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+    /* فاصله از محتوای بالایی */
+    box-sizing: border-box;
+}
+
+.page-footer a {
+    color: #555;
+    /* رنگ متن */
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.page-footer a:hover {
+    color: #1a5a96;
+    /* تغییر رنگ در هاور، هماهنگ با دکمه */
+    text-decoration: underline;
+}
+
+
+/* === استایل‌های جدید برای افکت هاور دکمه === */
+
+/* اضافه کردن انیمیشن نرم به حالت عادی دکمه */
+#solve-button {
+    /* ... استایل های قبلی شما ... */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* استایل دکمه در حالت هاور (وقتی موس روی آن است) */
+#solve-button:hover {
+    background-color: #144a7d;
+    /* رنگ پس‌زمینه کمی تیره‌تر می‌شود */
+    transform: translateY(-2px);
+    /* دکمه کمی به بالا حرکت می‌کند */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* یک سایه ملایم اضافه می‌شود */
+}
+
+/* استایل دکمه در حالت فعال (وقتی کلیک شده است) */
+#solve-button:active {
+    transform: translateY(0);
+    /* دکمه به جای اولش برمی‌گردد */
+    box-shadow: none;
+    /* سایه حذف می‌شود */
 }
